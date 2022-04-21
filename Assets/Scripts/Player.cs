@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof (Controller2D))]
@@ -9,7 +7,7 @@ public class Player : MonoBehaviour
 
     float timeToJumpApex = .4f;
 
-    float moveSpeed = 6;
+    public float moveSpeed = 6;
 
     float gravity = -2;
 
@@ -59,7 +57,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Death() {
+    public void Death() {
         health -= 1;
         if (health == 0) {
             Debug.Log("Game Over!");
