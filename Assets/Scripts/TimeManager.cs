@@ -3,7 +3,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public float slowDownFactor = 0.05f;
-    public float slowDownLength = 2f;
+    public float slowDownLength = 4f;
 
     void Update() {
         Time.timeScale += (1f / slowDownLength) * Time.unscaledDeltaTime;

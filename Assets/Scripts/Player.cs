@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour
 {
-    float jumpHeight = 4;
+    float jumpHeight = 8;
 
-    float timeToJumpApex = .4f;
+    float timeToJumpApex = .8f;
 
     public float moveSpeed = 6;
 
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Vector3 velocity;
 
     Controller2D controller;
+    public PursuerController pursuerController;
     
     void Start() {
         controller = GetComponent<Controller2D>();
@@ -63,5 +64,6 @@ public class Player : MonoBehaviour
             Debug.Log("Game Over!");
         }
         this.transform.position = startingPosition;
+        pursuerController.ResetPosition();
     }
 }

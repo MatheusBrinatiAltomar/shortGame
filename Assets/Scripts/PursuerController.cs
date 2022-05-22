@@ -15,12 +15,14 @@ public class PursuerController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (player.moveSpeed - 2) * Time.deltaTime);
     }
 
+    public void ResetPosition() {
+        this.transform.position = startingPosition;
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("pls");
         if (other.gameObject.tag == "Player")
         {
             player.Death();
-            this.transform.position = startingPosition;
         }
     }
 }
