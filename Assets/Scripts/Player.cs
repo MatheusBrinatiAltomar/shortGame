@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
 
     public int health = 3;
 
-    Vector3 startingPosition = new Vector3(0,0,0);
+    Vector3 startingPosition = new Vector3(0, 0, 0);
+    Vector3 checkpointPosition = new Vector3(0, 0, 0);
 
     public Vector3 velocity;
 
@@ -61,9 +62,23 @@ public class Player : MonoBehaviour
     public void Death() {
         health -= 1;
         if (health == 0) {
-            Debug.Log("Game Over!");
+            DeathReset();
+            pursuerController.DeathReset();
         }
-        this.transform.position = startingPosition;
+        ResetPosition();
         pursuerController.ResetPosition();
+    }
+
+    public void DeathReset() {
+        checkpointPosition = startingPosition;
+    }
+
+    public void ResetPosition() {
+        this.transform.position = checkpointPosition != Vector3.zero ? checkpointPosition : startingPosition;
+    }
+
+    public void CheckpointReached() {
+        checkpointPosition = this.transform.position;
+        pursuerController.CheckpointReached();
     }
 }
