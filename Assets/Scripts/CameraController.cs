@@ -7,6 +7,6 @@ public class CameraController : MonoBehaviour
     public Transform player;
 
     void Update () {
-        transform.position = player.transform.position + new Vector3(0, 1, -25);
+        transform.position = player.transform.position + new Vector3(0, 1, -50);
     }
 }
