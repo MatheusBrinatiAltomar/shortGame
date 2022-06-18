@@ -8,7 +8,7 @@ public class CheckpointController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             player.CheckpointReached();
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     Controller2D controller;
     public PursuerController pursuerController;
+    public CheckpointManager checkpointManager;
     
     void Start() {
         controller = GetComponent<Controller2D>();
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
     public void Death() {
         health -= 1;
         if (health == 0) {
+            health = 3;
             DeathReset();
             pursuerController.DeathReset();
         }
@@ -68,7 +70,9 @@ public class Player : MonoBehaviour
     }
 
     public void DeathReset() {
+        moveSpeed = 6;
         checkpointPosition = startingPosition;
+        checkpointManager.CheckCheckpointList();
     }
 
     public void ResetPosition() {
@@ -76,6 +80,8 @@ public class Player : MonoBehaviour
     }
 
     public void CheckpointReached() {
+        if (health < 3 && health >= 0) health += 1;
+        moveSpeed += 1;
         checkpointPosition = this.transform.position;
         pursuerController.CheckpointReached();
     }

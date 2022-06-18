@@ -15,7 +15,7 @@ public class ObjectController : MonoBehaviour
             return;
         
         objectCounter += 1f;
-        distance = Mathf.Sign(player.velocity.x) == 1 ? 7f : -7f;
+        distance = player.moveSpeed;
         switch (number)
         {
             case 1:

@@ -13,7 +13,7 @@ public class PursuerController : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, (player.moveSpeed - 2) * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, player.moveSpeed * Time.deltaTime);
     }
 
     public void ResetPosition() {
