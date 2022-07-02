@@ -15,7 +15,7 @@ public class ObjectController : MonoBehaviour
             return;
         
         objectCounter += 1f;
-        distance = player.moveSpeed;
+        distance = player.moveSpeed + 2f;
         switch (number)
         {
             case 1:
