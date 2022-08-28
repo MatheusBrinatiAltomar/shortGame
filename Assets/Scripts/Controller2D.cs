@@ -17,7 +17,6 @@ public class Controller2D : MonoBehaviour
     BoxCollider2D collider;
     RayCastOrigins rayCastOrigins;
     public CollisionInfo collisions;
-    public TimeManager timeManager;
     public ObjectController objectController;
 
     void Start() {
@@ -26,10 +25,6 @@ public class Controller2D : MonoBehaviour
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            SlowDownControl();
-        }
-
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             InstantiateObject(1);
         } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -217,9 +212,6 @@ public class Controller2D : MonoBehaviour
             slopeAngle = 0;
         }
 
-    }
-    void SlowDownControl() {
-        timeManager.DoSlowMotion();
     }
 
     void InstantiateObject(int number) {

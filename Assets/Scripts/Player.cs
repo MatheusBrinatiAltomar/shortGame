@@ -59,12 +59,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Death() {
+    public void Death(bool gameWin = false) {
         health -= 1;
-        if (health == 0) {
+        if (health == 0 || gameWin) {
             health = 3;
             DeathReset();
-            pursuerController.DeathReset();
         }
         ResetPosition();
         pursuerController.ResetPosition();
@@ -75,6 +74,7 @@ public class Player : MonoBehaviour
         moveSpeed = 6;
         checkpointPosition = startingPosition;
         checkpointManager.CheckCheckpointList();
+        pursuerController.DeathReset();
     }
 
     public void ResetPosition() {
