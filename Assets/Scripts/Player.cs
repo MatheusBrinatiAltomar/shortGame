@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
     public void DeathReset() {
         moveSpeed = 6;
         checkpointPosition = startingPosition;
-        checkpointManager.CheckCheckpointList();
         pursuerController.DeathReset();
     }
 
