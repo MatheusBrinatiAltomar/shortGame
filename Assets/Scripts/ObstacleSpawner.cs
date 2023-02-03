@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    //TODO: Remove obstacles on death
     public GameObject obstacle;
     public GameObject checkpoint;
     public Player player;
@@ -25,9 +24,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnObstacle() {
         if (Random.Range(1, 6) == 5) {
-            Instantiate(checkpoint, this.transform.position + new Vector3(0f, Random.Range(-10.0f, 30.0f), 0f), Quaternion.AngleAxis(Random.Range(-40.0f, 40.0f), new Vector3(0, 0, 1)));
+            Instantiate(checkpoint, this.transform.position + new Vector3(0f, Random.Range(-5.0f, 10.0f), 0f), Quaternion.AngleAxis(Random.Range(-40.0f, 40.0f), new Vector3(0, 0, 1)));
         } else {
-            Instantiate(obstacle, this.transform.position + new Vector3(0f, Random.Range(-10.0f, 30.0f), 0f), Quaternion.AngleAxis(Random.Range(-40.0f, 40.0f), new Vector3(0, 0, 1)));
+            Instantiate(obstacle, this.transform.position + new Vector3(0f, Random.Range(-5.0f, 10.0f), 0f), Quaternion.AngleAxis(Random.Range(-40.0f, 40.0f), new Vector3(0, 0, 1)));
         }
     }
 }

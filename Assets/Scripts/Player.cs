@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public PursuerController pursuerController;
     public CheckpointManager checkpointManager;
     public HealthController healthController;
+    public ObjectController objectController;
     
     void Start() {
         controller = GetComponent<Controller2D>();
@@ -74,10 +75,12 @@ public class Player : MonoBehaviour
         moveSpeed = 6;
         checkpointPosition = startingPosition;
         pursuerController.DeathReset();
+        objectController.DestroyAllObjects();
     }
 
     public void ResetPosition() {
         this.transform.position = checkpointPosition != Vector3.zero ? checkpointPosition : startingPosition;
+        objectController.DestroyUnecessaryObjects(this.transform.position);
     }
 
     public void CheckpointReached() {

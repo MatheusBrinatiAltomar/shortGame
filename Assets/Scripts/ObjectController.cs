@@ -40,4 +40,25 @@ public class ObjectController : MonoBehaviour
         yield return new WaitForSeconds (3);
         objectCounter = objectCounter >= 0 && objectCounter <= 3 ? objectCounter - 1f : objectCounter;
     }
+
+    public void DestroyUnecessaryObjects(Vector3 playerPosition) {
+        var objectsToBeDestroyed = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        for (int i = 0; i < objectsToBeDestroyed.Length; i++)
+        {
+            if (objectsToBeDestroyed[i].transform.position.x < playerPosition.x)
+            {
+                Destroy(objectsToBeDestroyed[i]);
+            }
+        }
+    }
+
+    public void DestroyAllObjects() {
+        var objectsToBeDestroyed = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        for (int i = 0; i < objectsToBeDestroyed.Length; i++)
+        {
+            Destroy(objectsToBeDestroyed[i]);
+        }
+    }
 }
