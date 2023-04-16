@@ -19,17 +19,17 @@ public class ObjectController : MonoBehaviour
         switch (number)
         {
             case 1:
-                GameObject newObjectGoingUp = Instantiate(objectToInstantiate, position + new Vector3(distance, 0.5f, 0), Quaternion.AngleAxis(30f, new Vector3(0, 0, 1)));
+                GameObject newObjectGoingUp = Instantiate(objectToInstantiate, position + new Vector3(distance, 2f, 0), Quaternion.AngleAxis(30f, new Vector3(0, 0, 1)));
                 Destroy (newObjectGoingUp, 3f);
                 StartCoroutine(DestroyCoroutine());
                 break;
             case 2:
-                GameObject newObjectStraight = Instantiate(objectToInstantiate, position + new Vector3(distance, -1.2f, 0), Quaternion.AngleAxis(0f, new Vector3(0, 0, 1)));
+                GameObject newObjectStraight = Instantiate(objectToInstantiate, position + new Vector3(distance, -1.5f, 0), Quaternion.AngleAxis(0f, new Vector3(0, 0, 1)));
                 Destroy(newObjectStraight, 3f);
                 StartCoroutine(DestroyCoroutine());
                 break;
             case 3:
-                GameObject newObjectGoingDown = Instantiate(objectToInstantiate, position + new Vector3(distance, -3f, 0), Quaternion.AngleAxis(-30f, new Vector3(0, 0, 1)));
+                GameObject newObjectGoingDown = Instantiate(objectToInstantiate, position + new Vector3(distance, -5f, 0), Quaternion.AngleAxis(-30f, new Vector3(0, 0, 1)));
                 Destroy(newObjectGoingDown, 3f);
                 StartCoroutine(DestroyCoroutine());
                 break;

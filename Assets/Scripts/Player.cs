@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
 
     Controller2D controller;
     public PursuerController pursuerController;
-    public CheckpointManager checkpointManager;
     public HealthController healthController;
     public ObjectController objectController;
     

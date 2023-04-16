@@ -21,11 +21,6 @@ public class PauseController : MonoBehaviour
             gameIsPaused = !gameIsPaused;
             PauseGame();
         }
-        if (player.transform.position.x > 620f) {
-            gameIsPaused = true;
-            gameEnd = true;
-            PauseGame();
-        }
     }
 
     public void PauseGame() {

@@ -14,13 +14,13 @@ public class PlaceholderController : MonoBehaviour
         switch (type)
         {
             case 1:
-                this.transform.position = (player.transform.position + new Vector3(distance, 0.5f, 0));
+                this.transform.position = (player.transform.position + new Vector3(distance, 2f, 0));
                 break;
             case 2:
-                this.transform.position = (player.transform.position + new Vector3(distance, -1.2f, 0));
+                this.transform.position = (player.transform.position + new Vector3(distance, -1.5f, 0));
                 break;
             case 3:
-                this.transform.position = (player.transform.position + new Vector3(distance, -3f, 0));
+                this.transform.position = (player.transform.position + new Vector3(distance, -5f, 0));
                 break;
         }
     }
