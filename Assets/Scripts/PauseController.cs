@@ -26,7 +26,6 @@ public class PauseController : MonoBehaviour
     public void PauseGame() {
         Time.timeScale = gameIsPaused ? 0f : 1f;
         gamePausePanel.SetActive(gameIsPaused ? true : false);
-        youWinText.text = (gameEnd ? "You Win!" : "");
     }
 
     public void Reset() {
@@ -34,5 +33,12 @@ public class PauseController : MonoBehaviour
         gameEnd = false;
         gameIsPaused = false;
         PauseGame();
+    }
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
     }
 }
