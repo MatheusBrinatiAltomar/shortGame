@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public PursuerController pursuerController;
     public HealthController healthController;
     public ObjectController objectController;
+    public BottomController bottomController;
     
     void Start() {
         controller = GetComponent<Controller2D>();
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
         }
         ResetPosition();
         pursuerController.ResetPosition();
+        bottomController.Reset();
         healthController.UpdateHealth();
     }
 
