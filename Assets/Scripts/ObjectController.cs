@@ -8,6 +8,13 @@ public class ObjectController : MonoBehaviour
     public Player player;
     public float objectCounter = 0f;
 
+    [SerializeField]
+    private AudioClip place1;
+    [SerializeField]
+    private AudioClip place2;
+    [SerializeField]
+    private AudioClip place3;
+
     float distance;
 
     public void Instantiate(Vector3 position, int number) {
@@ -21,16 +28,19 @@ public class ObjectController : MonoBehaviour
             case 1:
                 GameObject newObjectGoingUp = Instantiate(objectToInstantiate, position + new Vector3(distance, 2f, 0), Quaternion.AngleAxis(30f, new Vector3(0, 0, 1)));
                 Destroy (newObjectGoingUp, 3f);
+                SoundFXManager.instance.PlaySoundFXClip(place1, new GameObject().transform, 1f);
                 StartCoroutine(DestroyCoroutine());
                 break;
             case 2:
                 GameObject newObjectStraight = Instantiate(objectToInstantiate, position + new Vector3(distance, -1.5f, 0), Quaternion.AngleAxis(0f, new Vector3(0, 0, 1)));
                 Destroy(newObjectStraight, 3f);
+                SoundFXManager.instance.PlaySoundFXClip(place2, new GameObject().transform, 1f);
                 StartCoroutine(DestroyCoroutine());
                 break;
             case 3:
                 GameObject newObjectGoingDown = Instantiate(objectToInstantiate, position + new Vector3(distance, -5f, 0), Quaternion.AngleAxis(-30f, new Vector3(0, 0, 1)));
                 Destroy(newObjectGoingDown, 3f);
+                SoundFXManager.instance.PlaySoundFXClip(place3, new GameObject().transform, 1f);
                 StartCoroutine(DestroyCoroutine());
                 break;
         }   

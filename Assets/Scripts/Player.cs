@@ -30,7 +30,11 @@ public class Player : MonoBehaviour
     public HealthController healthController;
     public ObjectController objectController;
     public BottomController bottomController;
-    
+
+    public AudioClip[] jumpSoundClips;
+    public AudioClip[] deathSoundClips;
+    public AudioClip deathResetSoundClip;
+
     void Start() {
         controller = GetComponent<Controller2D>();
 
@@ -47,6 +51,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below) {
             velocity.y = jumpVelocity;
+            SoundFXManager.instance.PlaySoundFXClip(jumpSoundClips, new GameObject().transform, 1f);
         }
 
         float targetVelocityX = moveSpeed;
@@ -63,8 +68,11 @@ public class Player : MonoBehaviour
     public void Death(bool gameWin = false) {
         health -= 1;
         if (health == 0 || gameWin) {
+            SoundFXManager.instance.PlaySoundFXClip(deathResetSoundClip, new GameObject().transform, 1f);
             health = 3;
             DeathReset();
+        } else {
+            SoundFXManager.instance.PlaySoundFXClip(deathSoundClips, new GameObject().transform, 1f);
         }
         ResetPosition();
         pursuerController.ResetPosition();
