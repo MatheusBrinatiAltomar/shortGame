@@ -11,6 +11,9 @@ public class PauseController : MonoBehaviour
     public GameObject gamePausePanel;
     public Text youWinText;
 
+    public GameObject buttonPanel;
+    public GameObject audioPanel;
+
     void Start() {
         gameEnd = false;
     }
@@ -34,11 +37,24 @@ public class PauseController : MonoBehaviour
         gameIsPaused = false;
         PauseGame();
     }
+
     public void QuitGame()
     {
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
         Application.Quit();
+    }
+
+    public void OpenAudioMenu()
+    {
+        buttonPanel.SetActive(false);
+        audioPanel.SetActive(true);
+    }
+
+    public void CloseAudioMenu()
+    {
+        buttonPanel.SetActive(true);
+        audioPanel.SetActive(false);
     }
 }

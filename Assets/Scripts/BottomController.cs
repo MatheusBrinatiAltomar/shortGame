@@ -21,7 +21,6 @@ public class BottomController : MonoBehaviour
     {
         if (player.transform.position.x >= startingPostion + 80)
         {
-            Debug.Log("h");
             Destroy(mostRecentBottom);
             mostRecentBottom = Instantiate(bottomPrefab, new Vector3(player.transform.position.x, -105, 0), Quaternion.AngleAxis(0f, new Vector3(0, 0, 1)));
             startingPostion = player.transform.position.x;
